@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package person;
+
+// Gói Go sẽ được tạo từ file này
+option go_package = "github.com/cuongnm10/test_golang/personpb";
+
+service PersonService {
+  // API trả về thông tin của một người dựa trên ID
+  rpc GetPerson (PersonRequest) returns (PersonResponse);
+}
+
+message PersonRequest {
+  int32 id = 1;
+}
+
+message PersonResponse {
+  int32 id = 1;
+  string name = 2;
+  int32 age = 3;
+  string email = 4;
+}
